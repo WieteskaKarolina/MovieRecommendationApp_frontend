@@ -1,0 +1,18 @@
+
+
+<ng-container *ngIf="movies">
+    <div class="film-list-wrapper">
+        <h3 *ngIf="movies.length < 1">Loading...</h3>
+        <div class="search-movies">
+            <app-movie-tile
+            *ngFor="let movie of movies"
+            [posterUrl]="movie.poster_url"
+            [title]="movie.title"
+            ></app-movie-tile>
+        </div>
+        </div>
+</ng-container>
+
+    
+    <!-- <mat-paginator [length]="totalResults" [pageSize]="20" (page)="changePage($event)"></mat-paginator> -->
+    

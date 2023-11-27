@@ -1,0 +1,33 @@
+.genre-card {
+    display: inline-block;
+    margin: 14px 10px;
+    padding: 12px 0px;
+    vertical-align: top;
+    color: rgb(178, 60, 150) !important;
+    font-size: 2rem;
+}
+
+
+
+.genre-card {
+    width: 20%;
+}
+
+
+.film-list-wrapper {
+    margin-top: 65px; 
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    .genres-movies {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 15px;
+      }
+}

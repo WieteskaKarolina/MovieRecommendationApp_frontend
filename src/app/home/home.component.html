@@ -1,5 +1,20 @@
-<div class="container">
-  <header class="jumbotron">
-    <p>{{ content }}</p>
-  </header>
-</div>
+<app-movie-slider></app-movie-slider>
+
+<section class="movies">
+  <div class="contain mt-3 mb-5 p-4">
+    <div class="row">
+      <h3 class="text-white">Trending Movies</h3>
+      <owl-carousel-o [options]="carouselOptions">
+        <ng-container *ngFor="let movie of movies">
+          <div class="item">
+            <app-movie-tile
+              [posterUrl]="movie.poster_url"
+              [title]="movie.title"
+            ></app-movie-tile>
+          </div>
+        </ng-container>
+      </owl-carousel-o>
+      
+    </div>
+  </div>
+</section>
