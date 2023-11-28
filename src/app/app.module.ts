@@ -11,13 +11,16 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { MovieTileComponent } from './movie-tile/movie-tile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { MoviesComponent } from './movies/movies.component';
 import { MoviesFilterComponent } from './movies-filter/movies-filter.component';
 import { MovieSliderComponent } from './movie-slider/movie-slider.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CarouselModule } from 'primeng/carousel';
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

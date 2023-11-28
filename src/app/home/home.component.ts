@@ -1,7 +1,7 @@
 import { MovieService } from '../_services/movie.service';
 import { Movie } from '../_models/movie.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
-
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-your-component',
@@ -10,24 +10,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   movies: Movie[] = [];
-
-  carouselOptions = {
-    loop: true,
-    margin: 10,
-    nav: true,
-    items: 5, // Display 5 items at once
-    responsive: {
-      0: {
-        items: 1
-      },
-      600: {
-        items: 3
-      },
-      1000: {
-        items: 5
-      }
-    }
-  };
   
   constructor(private movieService: MovieService) {}
 
