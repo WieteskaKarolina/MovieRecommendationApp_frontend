@@ -1,17 +1,12 @@
 <app-movie-slider></app-movie-slider>
 
-<section class="movies">
-  <div class="contain mt-3 mb-5 p-4">
-    <div class="row">
-      <h3 class="text-white">Trending Movies</h3>
-      <p-carousel [value]="movies" [numVisible]="5" [numScroll]="5">
-        <ng-template let-movie pTemplate="item">
-          <app-movie-tile
-            [posterUrl]="movie.poster_url"
-            [title]="movie.title"
-          ></app-movie-tile>
-        </ng-template>
-      </p-carousel>
+<p-carousel *ngIf="movies.length > 0" [value]="movies" [numVisible]="5" [numScroll]="5">
+  <ng-template let-movie pTemplate="item">
+    <div>
+      <app-movie-tile
+        [posterUrl]="movie.poster_url"
+        [title]="movie.title"
+      ></app-movie-tile>
     </div>
-  </div>
-</section>
+  </ng-template>
+</p-carousel>

@@ -1,12 +1,11 @@
 import { MovieService } from '../_services/movie.service';
 import { Movie } from '../_models/movie.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-your-component',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   movies: Movie[] = [];
