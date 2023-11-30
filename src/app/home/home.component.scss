@@ -1,3 +1,50 @@
-@import 'primeng/resources/themes/saga-blue/theme.css';
-@import 'primeng/resources/primeng.min.css';
-@import 'primeicons/primeicons.css';
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    scroll-behavior: smooth;
+  
+    section {
+      width: 100%;
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+  
+      .arrow__btn {
+        position: absolute;
+        color: #fff;
+        text-decoration: none;
+        font-size: 2em;
+        background: rgb(0, 0, 0);
+        width: 40px;
+        padding: 10px;
+        text-align: center;
+        z-index: 1;
+        cursor: pointer;
+      }
+  
+      .left-arrow {
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+      }
+  
+      .right-arrow {
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+      }
+  
+      .movie-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        padding-left: 40px;  
+      }
+
+    }
+  }
+  

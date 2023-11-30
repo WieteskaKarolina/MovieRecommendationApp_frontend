@@ -1,12 +1,17 @@
 <app-movie-slider></app-movie-slider>
 
-<p-carousel *ngIf="movies.length > 0" [value]="movies" [numVisible]="5" [numScroll]="5">
-  <ng-template let-movie pTemplate="item">
-    <div>
-      <app-movie-tile
-        [posterUrl]="movie.poster_url"
-        [title]="movie.title"
-      ></app-movie-tile>
+<app-movie-slider></app-movie-slider>
+
+<div class="wrapper">
+  <section id="section1">
+    <div class="arrow__btn left-arrow" (click)="scrollCarousel('left')">&lt;</div>
+
+    <div class="movie-container">
+      <div *ngFor="let movie of visibleMovies" class="item">
+        <app-movie-tile [posterUrl]="movie.poster_url" [title]="movie.title"></app-movie-tile>
+      </div>
     </div>
-  </ng-template>
-</p-carousel>
+
+    <div class="arrow__btn right-arrow" (click)="scrollCarousel('right')">&gt;</div>
+  </section>
+</div>
