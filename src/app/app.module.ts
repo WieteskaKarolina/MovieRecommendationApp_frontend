@@ -20,6 +20,7 @@ import { MovieSliderComponent } from './movie-slider/movie-slider.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'primeng/carousel';
 import { CommonModule } from '@angular/common';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CommonModule } from '@angular/common';
     MovieTileComponent,
     MoviesComponent,
     MoviesFilterComponent,
-    MovieSliderComponent
+    MovieSliderComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

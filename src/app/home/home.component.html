@@ -8,7 +8,7 @@
 
     <div class="movie-container">
       <div *ngFor="let movie of visibleMovies" class="item">
-        <app-movie-tile [posterUrl]="movie.poster_url" [title]="movie.title"></app-movie-tile>
+        <app-movie-tile [movie]=movie></app-movie-tile>
       </div>
     </div>
 
