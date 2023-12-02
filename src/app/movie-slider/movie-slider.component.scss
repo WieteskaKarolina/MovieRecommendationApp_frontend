@@ -25,6 +25,7 @@ $breakpoint-large: 1200px;
 $breakpoint-xlarge: 1400px;
 
 .hero {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,19 +33,18 @@ $breakpoint-xlarge: 1400px;
   color: #999;
   background-color: #000;
   position: relative;
+  overflow: hidden;
 
   @media (min-width: $breakpoint-xsmall) {
     height: 50rem;
-    position: relative;
   }
 
   @media (min-width: $breakpoint-medium) {
-    position: relative;
-    display: block;
     height: 0;
     padding-bottom: 40%;
   }
 }
+
 .slider {
   position: absolute;
   top: 0;
@@ -134,17 +134,17 @@ $breakpoint-xlarge: 1400px;
     object-fit: cover;
   }
   @media (min-width: $breakpoint-medium) {
-    width: 100%;  // Adjusted width for larger screens
+    width: 100%;
     object-fit: cover;
   }
 
   @media (min-width: $breakpoint-large) {
-    width: 100%;  // Adjusted width for larger screens
+    width: 100%;
     object-fit: cover;
   }
 
   @media (min-width: $breakpoint-xlarge) {
-    width: 100%;  // Adjusted width for extra-large screens
+    width: 100%;
     object-fit: cover;
   }
 }
