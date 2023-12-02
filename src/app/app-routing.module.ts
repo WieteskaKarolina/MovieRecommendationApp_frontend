@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MoviesFilterComponent } from './movies-filter/movies-filter.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'moviesSearch', component: MoviesComponent},
   { path: 'moviesFilter', component: MoviesFilterComponent},
+  { path: 'movie-details/:id', component: MovieDetailsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

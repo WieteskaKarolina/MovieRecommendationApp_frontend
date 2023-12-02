@@ -33,5 +33,9 @@ export class MovieService {
     return this.http.get<Movie[]>(url);
   }
 
+  getMovie(movieId: string): Observable<Movie> {
+    const url = `${this.baseUrl}/getMovie?id=${movieId}`;
+    return this.http.get<Movie>(url);
+  }
   //add trending
 }
