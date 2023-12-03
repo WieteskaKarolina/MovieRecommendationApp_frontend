@@ -31,7 +31,7 @@ export class MovieTileComponent implements OnInit {
   // }
 
   onTileClick() {
-    this.router.navigate(['/movie-details', this.movie?.api_id]);
+    this.router.navigate(['/movie-details', this.movie?.movie_id]);
   }
 
 }

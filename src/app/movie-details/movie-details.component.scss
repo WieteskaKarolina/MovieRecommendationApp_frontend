@@ -1,25 +1,257 @@
-$color_1: #ffffff;
-$background-color_1: #E50914;
+$font-family--sans-serif:  Nunito, sans-serif;
+$font-family-serif-dosis: Dosis, sans-serif;
 
-p.overview {
-  max-width: 85%;
-  font-size: 21px;
+
+$base-font-size: 62.5%;
+$base-line-height: 1.6;
+$base-bg: #141414;
+$base-font-color: #fff;
+$anchor-font-color: #dc4666;
+$base-font-family: $font-family--sans-serif;
+$base-font-weight: 400;
+
+$letter-spacing: 0.4px;
+$text-color-grey: #abb7c4;
+
+$primary-color: #2196f3;
+// $secondary-color: #202124;
+$secondary-color: #dc4666;
+$text-color: #fafafa;
+
+$breakpoint-xsmall: 640px;
+$breakpoint-small: 768px;
+$breakpoint-medium: 1024px;
+$breakpoint-large: 1200px;
+$breakpoint-xlarge: 1400px;
+
+.hero {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 45rem;
+  color: #999;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-xsmall) {
+    height: 50rem;
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    height: 0;
+    padding-bottom: 40%;
+  }
 }
 
-
-img {
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+
+  @media (min-width: $breakpoint-xsmall) {
+    .slider {
+      position: relative !important;
+    }
+  }
 }
-h1 {
-  color: $color_1;
-  font-weight: bold;
+
+
+.backdrop {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+
+  @media (min-width: $breakpoint-medium) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 71.1%;
+    height: 100%;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: "";
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+
+    @media (min-width: $breakpoint-medium) {
+      background-image: linear-gradient(
+        to right,
+        #000 0,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+  }
+
+  > div {
+    width: 100%;
+
+    @media (min-width: $breakpoint-medium) {
+      display: inline;
+    }
+  }
 }
-p {
-  color: $color_1;
+
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  background: none;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: $breakpoint-medium) {
+    display: none;
+  }
 }
-a {
-  &:hover {
-    background-color: $background-color_1;
+
+.image {
+  display: inline-block;
+  max-width: none;
+  height: 100%;
+
+  @media (max-width: $breakpoint-medium ) {
+    width: 100%;
+    object-fit: cover;
+  }
+  @media (min-width: $breakpoint-medium) {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: $breakpoint-large) {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: $breakpoint-xlarge) {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.pane {
+  padding: 0 1.5rem 1.5rem;
+
+  @media (min-width: $breakpoint-small) {
+    padding: 0 4rem 4rem;
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 55%;
+    height: 100%;
+  }
+
+  @media (min-width: $breakpoint-large) {
+    padding-right: 5rem;
+    padding-left: 5rem;
+  }
+
+  @media (min-width: $breakpoint-xlarge) {
+    width: 45%;
+  }
+}
+
+.name {
+  margin: 0 0 1.4rem;
+  font-size: 2.8rem;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: $letter-spacing;
+  cursor: pointer;
+
+  @media (min-width: $breakpoint-small) {
+    margin-bottom: 1.8rem;
+  }
+
+  @media (min-width: $breakpoint-large) {
+    font-size: 2.4vw;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.meta {
+  font-size: 1.4rem;
+
+  @media (min-width: $breakpoint-small) {
+    display: flex;
+  }
+
+  @media (min-width: 1650px) {
+    font-size: 0.9vw;
+  }
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.3rem;
+
+  @media (min-width: $breakpoint-small) {
+    margin: 0 1.2rem 0 0;
+  }
+}
+
+.info {
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-right: 0.4rem;
+
+    &:not(:last-child):after {
+      content: "|";
+      margin-right: 9px;
+      margin-left: 9px;
+    }
+  }
+}
+
+
+
+.rate {
+  font-size: 12px;
+
+  i {
+    font-size: 16px;
+    margin-right: 5px;
+  }
+
+  .material-icons {
+    color: #dcf836;
+  }
+
+  span {
+    color: $base-font-color;
+    font-size: 16px;
+    font-weight: 400;
   }
 }
