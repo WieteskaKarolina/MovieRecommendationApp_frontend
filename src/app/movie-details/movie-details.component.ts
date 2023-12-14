@@ -9,7 +9,8 @@ import { Movie } from '../_models/movie.model';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-  selectedMovie: Movie | undefined;
+  selectedMovie!: Movie;
+  userRating: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,5 +32,10 @@ export class MovieDetailsComponent implements OnInit {
         }
       );
     }
+  }
+
+
+  onRatingUpdated(rating: number) {
+    this.userRating = rating;
   }
 }

@@ -9,8 +9,8 @@ import { Movie } from '../_models/movie.model';
   styleUrls: ['./movie-slider.component.scss'],
   animations: [
     trigger('fade', [
-      transition('void => *', [style({ opacity: 0 }), animate('300ms', style({ opacity: 1 }))]),
-      transition('* => void', [style({ opacity: 1 }), animate('300ms', style({ opacity: 0 }))]),
+      transition('void => *', [style({ opacity: 0 }), animate('500ms', style({ opacity: 1 }))]),
+      transition('* => void', [style({ opacity: 1 }), animate('500ms', style({ opacity: 0 }))]),
     ])
   ]
 })
@@ -31,7 +31,7 @@ export class MovieSliderComponent implements OnInit {
   sliderTimer() {
     setInterval(() => {
       this.current = ++this.current % this.movies.length;
-    }, 5000);
+    }, 15000);
   }
 
 }

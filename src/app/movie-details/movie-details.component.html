@@ -9,23 +9,22 @@
             <div class="pane">
                 <div>
                     <h1 class="name">
-                      {{selectedMovie.title}}
+                        {{selectedMovie.title}}
                     </h1>
-                    <!-- <h1 class="name" [routerLink]="['/movies/', movie.id]">
-                        {{movie?.title}}
-                    </h1> -->
-                    <!-- <div class="meta">
+                    <div class="meta">
                         <div class="info">
-                            <span class="rate"><i class="material-icons">star</i><span>{{movie?.vote_average}}</span>/10</span>
-                            <span> {{movie?.vote_count | numberWithCommas }} Reviews</span>
-                            <span>{{movie?.release_date | date: 'yyyy' }}</span>
+                            <span class="rate"><i class="material-icons">star</i><span>{{selectedMovie.voteAverage}}</span>/10</span>
+                            <span> {{selectedMovie.voteCount}} Reviews</span>
+                            <span>{{selectedMovie.releaseDate  }}</span>
                         </div>
-                    </div> -->
-                    <!-- <div class="desc">
-                        {{movie?.overview }}
-                    </div> -->
+                    </div>
+                    <div class="desc">
+                        {{selectedMovie.overview }}
+                    </div>
                 </div>
             </div>
         </div>
     </ng-container>
 </div>
+
+<mat-star-rating [movieId]="selectedMovie.movie_id" [rating]="userRating" [starCount]="5" [color]="'accent'" (ratingUpdated)="onRatingUpdated($event)"></mat-star-rating>

@@ -21,6 +21,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'primeng/carousel';
 import { CommonModule } from '@angular/common';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { RatingModule } from 'primeng/rating';
+import { RatingsComponent } from './ratings/ratings.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -35,7 +42,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     MoviesComponent,
     MoviesFilterComponent,
     MovieSliderComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    RatingsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,13 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     BrowserAnimationsModule,
     CarouselModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    RatingModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
