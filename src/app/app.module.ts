@@ -28,7 +28,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { RatingDialogComponent } from './rating-dialog/rating-dialog.component'
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MoviesFilterComponent,
     MovieSliderComponent,
     MovieDetailsComponent,
-    RatingsComponent
+    RatingsComponent,
+    RatingDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSnackBarModule,
     MatIconModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

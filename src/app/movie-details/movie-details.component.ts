@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../_services/movie.service';
 import { Movie } from '../_models/movie.model';
+import { MatDialog } from '@angular/material/dialog';
+import { RatingDialogComponent } from '../rating-dialog/rating-dialog.component';
 
 @Component({
   selector: 'app-movie-details',
@@ -14,7 +16,8 @@ export class MovieDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private movieService: MovieService
+    private movieService: MovieService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -35,7 +38,20 @@ export class MovieDetailsComponent implements OnInit {
   }
 
 
-  onRatingUpdated(rating: number) {
-    this.userRating = rating;
+  openRatingDialog() {
+    const dialogRef = this.dialog.open(RatingDialogComponent, {
+      width: '400px',
+      data: {
+        movieId: this.selectedMovie.movie_id,
+        userRating: this.userRating,
+      },
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result !== undefined) {
+        this.userRating = result;
+      }
+    });
   }
+    
 }

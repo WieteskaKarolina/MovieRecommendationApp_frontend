@@ -1,0 +1,21 @@
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 25px;
+  }
+  
+  button img.checked {
+    width: 15px;
+    height: 15px;
+  }
+  
+  button img.unchecked {
+    width: 15px;
+    height: 15px;
+  }
+
+  .body-2 {
+    margin-top: 50px; 
+  }
+  

@@ -27,4 +27,5 @@
     </ng-container>
 </div>
 
-<mat-star-rating [movieId]="selectedMovie.movie_id" [rating]="userRating" [starCount]="5" [color]="'accent'" (ratingUpdated)="onRatingUpdated($event)"></mat-star-rating>
+<button mat-button (click)="openRatingDialog()">Rate This Film</button>
+

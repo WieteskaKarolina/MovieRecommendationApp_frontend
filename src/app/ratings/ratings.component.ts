@@ -24,9 +24,24 @@ export class RatingsComponent implements OnInit {
     for (let index = 0; index < this.starCount; index++) {
       this.ratingArr.push(index);
     }
+
+    this.movieService.getRateForMovie(this.movieId).subscribe(
+      (movieRating: number) => {
+        this.rating = movieRating;
+      },
+      error => {
+        console.error('Error getting movie rating:', error);
+        this.rating = 0;
+      }
+    );
   }
 
-  onClick(rating: number) {
+  onMouseEnter(rating: number) {
+    this.rating = rating;
+  }
+
+   onClick(rating: number) {
+    this.rating = rating;
     this.snackBar.open('You rated ' + rating + ' / ' + this.starCount, '', {
       duration: this.snackBarDuration
     });
@@ -35,19 +50,17 @@ export class RatingsComponent implements OnInit {
     return false;
   }
 
-  showIcon(index: number) {
-    return this.rating >= index + 1 ? 'star' : 'star_border';
+  showIcon(index: number): string {
+    return this.rating >= index + 1 ? 'assets/star_gold.png' : 'assets/star_grey.png';
   }
 
   submitRating(rating: number) {
     this.movieService.submitRating(this.movieId, rating).subscribe(
       () => {
         console.log('Rating submitted successfully');
-        // You can update UI or perform any other action upon successful submission
       },
       error => {
         console.error('Error submitting rating:', error);
-        // Handle error as needed
       }
     );
   }
