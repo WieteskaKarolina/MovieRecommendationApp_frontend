@@ -1,22 +1,23 @@
-<div class="container-fluid mt-20 mb-20">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h2 class="mb-5 mt-5">Movies Genres</h2>
-            <a *ngFor="let genre of genreslist">
-                <button mat-raised-button color="primary" class="genre-card blue-theme" aria-label="Genres" (click)="searchMoviesByGenre(genre)">
-                    {{ genre }}
-                </button>
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="film-list-wrapper">
-    <h3 *ngIf="movies.length < 1">Loading...</h3>
-    <div class="genres-movies">
-        <app-movie-tile
-        *ngFor="let movie of movies"
-        [movie]=movie
-        ></app-movie-tile>
+<div class="container-fluid mt-4 mb-4">
+  <div class="column">
+    <!-- Genre Filter Section -->
+    <div class="sidebar">
+      <div *ngFor="let genre of genreslist; let i = index" 
+           (click)="selectGenre(genre)" 
+           [ngClass]="{'selected-genre': selectedGenre === genre}"
+           class="genre-filter">
+        {{ genre }}
+      </div>
     </div>
   </div>
+
+  <div class="column">
+    <!-- Movie List Section -->
+    <div class="film-list-wrapper">
+      <h3 *ngIf="movies.length < 1">Loading...</h3>
+      <div class="genres-movies">
+        <app-movie-tile *ngFor="let movie of movies" [movie]="movie"></app-movie-tile>
+      </div>
+    </div>
+  </div>
+</div>

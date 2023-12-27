@@ -13,6 +13,7 @@ export class MoviesFilterComponent implements OnInit {
   "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "TV Movie", 
   "Thriller", "War", "Western", "Animation"];
   movies: Movie[] = [];
+  selectedGenre: string = "";
 
   constructor(
     private movieService: MovieService
@@ -22,7 +23,14 @@ export class MoviesFilterComponent implements OnInit {
     this.movieService.getMoviesByGenre("").subscribe((movies) => this.movies = movies);
   }
 
-  searchMoviesByGenre(moviesGenre: string) {
-    this.movieService.getMoviesByGenre(moviesGenre).subscribe((movies) => this.movies = movies);
+  selectGenre(genre: string) {
+    this.selectedGenre = genre;
+    // Perform additional actions, like fetching movies for the selected genre
+    this.searchMoviesByGenre();
   }
+  
+  searchMoviesByGenre() {
+    this.movieService.getMoviesByGenre(this.selectedGenre).subscribe((movies) => this.movies = movies);
+  }
+
 }

@@ -30,6 +30,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RatingDialogComponent } from './rating-dialog/rating-dialog.component'
 import { MatDialogModule } from '@angular/material/dialog';
+import { WachedMoviesComponent } from './watched-movies/watched-movies.component'
+import { MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MovieSliderComponent,
     MovieDetailsComponent,
     RatingsComponent,
-    RatingDialogComponent
+    RatingDialogComponent,
+    WachedMoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    MatOptionModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

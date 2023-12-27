@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   visibleMovies: Movie[] = [];
   currentIndex = 0;
 
+
   @ViewChild('carousel') carousel!: Carousel;
 
   constructor(private movieService: MovieService) {}
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
       this.movies = movies;
       this.updateVisibleMovies();
     });
+    this.movieService.getWatchedMovies();
   }
 
   updateVisibleMovies(): void {

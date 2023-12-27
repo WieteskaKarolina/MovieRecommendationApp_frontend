@@ -1,6 +1,6 @@
 <div class="hero">
     <ng-container>
-        <div class="movie" *ngIf="selectedMovie" @fade>
+        <div class="movie" *ngIf="selectedMovie">
             <div class="backdrop">
                 <div class="lazyloaded">
                     <img alt="{{selectedMovie.title}}" class="lazyload image" src="{{selectedMovie.backdrop_url}}">
@@ -8,24 +8,51 @@
             </div>
             <div class="pane">
                 <div>
-                    <h1 class="name">
-                        {{selectedMovie.title}}
-                    </h1>
+                    <h1 class="name">{{selectedMovie.title}}</h1>
                     <div class="meta">
-                        <div class="info">
-                            <span class="rate"><i class="material-icons">star</i><span>{{selectedMovie.voteAverage}}</span>/10</span>
-                            <span> {{selectedMovie.voteCount}} Reviews</span>
-                            <span>{{selectedMovie.releaseDate  }}</span>
-                        </div>
+                    <div class="info">
+                        <span class="rate">
+                        <i class="material-icons">star</i><span>{{selectedMovie.voteAverage}}</span>/10
+                        </span>
+                        <span>{{selectedMovie.voteCount}} Reviews</span>
+                        <span>{{selectedMovie.releaseDate}}</span>
                     </div>
-                    <div class="desc">
-                        {{selectedMovie.overview }}
+                    </div>
+                    <div class="desc">{{selectedMovie.overview}}</div>
+                    <div class="buttons">
+                        <button mat-button (click)="openRatingDialog()" class="rate-button">
+                            <mat-icon>star</mat-icon> Rate This Film
+                          </button>                          
+                        <button mat-button (click)="clickOnWatched()" class="watch-button">
+                            <img *ngIf="watched" src="../../assets/watched.png" alt="Watched">
+                            <img *ngIf="!watched" src="../../assets/add_to_watched.png" alt="Add to Watched">
+                        </button>
+                        <button mat-button (click)="clickOnWatchLater()" class="watch-button">
+                          <img *ngIf="watchLater" src="../../assets/delete_from_watch_later.png" alt="Watch Later">
+                          <img *ngIf="!watchLater" src="../../assets/add_to_watch_later.png" alt="Add to Watch Later">
+                        </button>                       
                     </div>
                 </div>
             </div>
         </div>
     </ng-container>
-</div>
+  </div>
+  
 
-<button mat-button (click)="openRatingDialog()">Rate This Film</button>
-
+  <div class="header">
+    <h1 class="see-also-text">See also</h1>
+  </div>
+  
+  <div class="wrapper">
+    <section id="section">
+      <div class="arrow__btn left-arrow" (click)="scrollCarousel('left')">&lt;</div>
+  
+      <div class="movie-container">
+        <div *ngFor="let movie of visibleMovies" class="item">
+          <app-movie-tile [movie]=movie></app-movie-tile>
+        </div>
+      </div>
+  
+      <div class="arrow__btn right-arrow" (click)="scrollCarousel('right')">&gt;</div>
+    </section>
+  </div>

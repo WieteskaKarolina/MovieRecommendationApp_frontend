@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Movie } from '../_models/movie.model';
 import { CommunicationService } from './communication.service';
 import { TokenStorageService } from './token-storage.service';
+import { tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,6 +12,8 @@ import { TokenStorageService } from './token-storage.service';
 })
 export class MovieService {
   private baseUrl = 'http://localhost:8080/api/movies';
+  private watchedMovies: Movie[] = [];
+  private watchLaterMovies: Movie[] =[];
 
   constructor(
     private http: HttpClient,
@@ -65,5 +68,90 @@ export class MovieService {
 
     return this.http.get(`${this.baseUrl}/ratings/${movieId}`, { headers });  //retun number
   }
-  //add trending
+
+  addMovieToWatched(movieId: number): Observable<any> {
+    const token = this.tokenStorageService.getToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post(`${this.baseUrl}/addMovieToWatched/${movieId}`,{movieId}, { headers });
+  }
+
+  deleteMovieFromWatched(movieId: number): Observable<any> {
+    const token = this.tokenStorageService.getToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post(`${this.baseUrl}/deleteMovieFromWatched/${movieId}`,{movieId}, { headers });
+  }
+  
+
+  getWatchedMovies(): Observable<Movie[]> {
+    const token = this.tokenStorageService.getToken();
+    if (!token) {
+      console.error('Token not available');
+    }
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.get<Movie[]>(`${this.baseUrl}/getWatchedMovies`, { headers }).pipe(
+      tap((watchedMovies: Movie[]) => this.watchedMovies = watchedMovies)
+    );
+  }
+
+  isMovieInWatchedList(movieId: number): boolean {
+    if (this.watchedMovies.length === 0) {
+      // If watchedMovies array is empty, fetch the watched movies
+      this.getWatchedMovies().subscribe();
+    }
+    return this.watchedMovies.some(movie => movie.movie_id === movieId);
+  }
+
+  getWatchLaterList(): Observable<Movie[]> {
+    const token = this.tokenStorageService.getToken();
+    if (!token) {
+      console.error('Token not available');
+    }
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.get<Movie[]>(`${this.baseUrl}/getWatchLaterList`, { headers }).pipe(
+      tap((watchLaterMovies: Movie[]) => this.watchLaterMovies = watchLaterMovies)
+    );
+  }
+
+  addMovieToWatchLater(movieId: number): Observable<any> {
+    const token = this.tokenStorageService.getToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post(`${this.baseUrl}/addMovieToWatchLater/${movieId}`,{movieId}, { headers });
+  }
+
+  removeMovieFromWatchLater(movieId: number): Observable<any> {
+    const token = this.tokenStorageService.getToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post(`${this.baseUrl}/removeMovieFromWatchLater/${movieId}`,{movieId}, { headers });
+  }
+  
+  isMovieInWatchLaterMovies(movieId: number): boolean {
+    if (this.watchLaterMovies.length === 0) {
+      this.getWatchLaterList().subscribe();
+    }
+    return this.watchLaterMovies.some(movie => movie.movie_id === movieId);
+  }
 }
