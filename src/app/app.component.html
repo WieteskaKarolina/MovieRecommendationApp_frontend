@@ -1,6 +1,7 @@
 <div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
     <a href="#" class="navbar-brand">MovieRecommendation</a>
+    
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
         <a href="/home" class="nav-link" routerLink="home">Home </a>
@@ -9,7 +10,7 @@
         <a href="/moviesFilter" class="nav-link" *ngIf="isLoggedIn" routerLink="moviesFilter">MoviesGenres</a>
       </li>
     </ul>
-
+  
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
         <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
@@ -18,19 +19,28 @@
         <a href="/login" class="nav-link" routerLink="login">Login</a>
       </li>
     </ul>
+  
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="search()">
+      <mat-form-field>
+        <input matInput placeholder="Search" [(ngModel)]="searchTerm" name="searchTerm" (keyup.enter)="search()">
+        <button mat-button matSuffix type="submit">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </form> 
 
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <form class="form-inline my-2 my-lg-0" (ngSubmit)="search()">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" [(ngModel)]="searchTerm" name="searchTerm" (keyup.enter)="search()">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>      
-      <li class="nav-item">
-        <a href="/watched" class="nav-link" routerLink="watched">watchedMovies</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
+    <li class="nav-item">
+      <div class="custom-dropdown" [class.show]="isDropdownOpen" (click)="toggleDropdown()">
+        <a class="nav-link" id="userDropdown">
+          <mat-icon>account_circle</mat-icon>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" [class.show]="isDropdownOpen">
+          <a href="/watched" class="dropdown-item" routerLink="watched">Watched Movies</a>
+          <hr class="dropdown-divider" />
+          <a href class="dropdown-item" (click)="logout()">Log Out</a>
+        </div>
+      </div>
+    </li>
   </nav>
 
   <div class="container">

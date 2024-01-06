@@ -37,7 +37,7 @@
         </div>
     </ng-container>
   </div>
-  
+
 
   <div class="header">
     <h1 class="see-also-text">See also</h1>
@@ -55,4 +55,8 @@
   
       <div class="arrow__btn right-arrow" (click)="scrollCarousel('right')">&gt;</div>
     </section>
+  </div>
+
+  <div>
+    <app-comment *ngIf="selectedMovie" [movieId]="selectedMovie.movie_id"></app-comment>
   </div>

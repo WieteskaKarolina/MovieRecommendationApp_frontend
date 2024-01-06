@@ -1,0 +1,34 @@
+<div class="t-comments-box">
+    <div class="comment-title">
+      Comments
+    </div>
+  
+    <div *ngIf="comments.length > 0; else noCommentsText">
+        <div *ngFor="let comment of comments" class="comment">
+          <i class="fas fa-user"></i>
+          <div>
+            <div class="comment-label">
+              <span class="comment-name">{{ comment.userName }}</span>
+              <span class="comment-time"> - {{ comment.createdAt }}</span>
+            </div>
+            <div class="comment-content">{{ comment.text }}</div>
+            <div class="comment-action">
+              <span> <i class="far fa-heart"></i> Like ({{ comment.likes }})</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noCommentsText>
+        <p>No comments for this movie yet.</p>
+      </ng-template>
+
+
+      <div class="add-comment">
+        <i class="fas fa-user"></i>
+      <div class="comment-input">
+        <input [(ngModel)]="newComment" class="form-control form-control-sm" type="text" placeholder="Add a comment.." />
+        <div class="comment-send" (click)="postComment()"><i class="fab fa-telegram-plane"></i></div>
+      </div>
+    </div>
+</div>
+  

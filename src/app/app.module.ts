@@ -31,7 +31,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { RatingDialogComponent } from './rating-dialog/rating-dialog.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { WachedMoviesComponent } from './watched-movies/watched-movies.component'
+import { CommentComponent } from './comment/comment.component'
 import { MatOptionModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { MatOptionModule } from '@angular/material/core';
     MovieDetailsComponent,
     RatingsComponent,
     RatingDialogComponent,
-    WachedMoviesComponent
+    WachedMoviesComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

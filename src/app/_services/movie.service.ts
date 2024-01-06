@@ -27,7 +27,15 @@ export class MovieService {
 
   searchMovies(query: string): Observable<Movie[]> {
     const url = `${this.baseUrl}/search?query=${query}`;
-    return this.http.get<Movie[]>(url);
+
+    const token = this.tokenStorageService.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.get<Movie[]>(url, { headers });
   }
 
   notifySearchDone() {

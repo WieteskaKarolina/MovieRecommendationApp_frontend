@@ -223,7 +223,7 @@ $breakpoint-xlarge: 1400px;
 .info {
   display: flex;
   align-items: center;
-
+  font-size: 12px;
   span {
     margin-right: 0.4rem;
 
@@ -235,7 +235,35 @@ $breakpoint-xlarge: 1400px;
   }
 }
 
+.desc {
+  display: block;
+  margin-top: 2.5rem;
+  font-size: 12px;
+  color: #fff;
+  font-weight: $base-font-weight;
+  color: $base-font-color;
+  font-family: $font-family-serif-dosis;
 
+  @media (max-width: $breakpoint-small ) {
+    display: none;
+  }
+
+  @media (min-width: 1650px) {
+    font-size: 0.9vw;
+  }
+}
+
+.trailer {
+  margin-top: 3rem;
+
+  @media (max-width: $breakpoint-medium ) {
+    display: none;
+  }
+
+  @media (min-width: 1650px) {
+    font-size: 0.9vw;
+  }
+}
 
 .rate {
   font-size: 15px;

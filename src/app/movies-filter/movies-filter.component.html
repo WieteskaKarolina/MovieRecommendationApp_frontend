@@ -1,17 +1,15 @@
 <div class="container-fluid mt-4 mb-4">
-  <div class="column">
+  <div class="column sidebar">
     <!-- Genre Filter Section -->
-    <div class="sidebar">
-      <div *ngFor="let genre of genreslist; let i = index" 
-           (click)="selectGenre(genre)" 
-           [ngClass]="{'selected-genre': selectedGenre === genre}"
-           class="genre-filter">
-        {{ genre }}
-      </div>
+    <div *ngFor="let genre of genreslist; let i = index" 
+         (click)="selectGenre(genre)" 
+         [ngClass]="{'selected-genre': selectedGenre === genre}"
+         class="genre-filter">
+      {{ genre }}
     </div>
   </div>
 
-  <div class="column">
+  <div class="column film-list">
     <!-- Movie List Section -->
     <div class="film-list-wrapper">
       <h3 *ngIf="movies.length < 1">Loading...</h3>

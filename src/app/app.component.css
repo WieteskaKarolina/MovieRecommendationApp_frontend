@@ -1,0 +1,22 @@
+.form-inline {
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-form-field {
+    margin-right: 8px;
+  }
+
+
+  .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.8); 
+  }
+  
+  .dropdown-menu a {
+    color: white;
+  }
+
+  .navbar {
+    background-image: url('../assets/nav_background.jpg');
+  }
+  
