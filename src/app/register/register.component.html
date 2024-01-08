@@ -69,7 +69,22 @@
             Password must be at least 6 characters
           </div>
         </div>
-      </div>
+     </div>
+     <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="confirmPassword"
+          [(ngModel)]="form.confirmPassword"
+          required
+          #confirmPassword="ngModel"
+        />
+        <div class="alert-danger" *ngIf="confirmPassword.errors && f.submitted">
+          <div *ngIf="confirmPassword.errors['required']">Confirm Password is required</div>
+          <div *ngIf="form.password !== form.confirmPassword">Passwords do not match</div>
+        </div>
+     </div>
       <div class="form-group">
         <button class="btn btn-primary btn-block">Sign Up</button>
       </div>
@@ -81,6 +96,7 @@
 
     <div class="alert alert-success" *ngIf="isSuccessful">
       Your registration is successful!
+      <button class="btn btn-link" (click)="openRatingDialogForMovies()">Start Rating Movies</button>
     </div>
   </div>
 </div>

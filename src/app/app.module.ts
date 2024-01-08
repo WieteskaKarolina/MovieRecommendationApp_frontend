@@ -33,6 +33,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { WachedMoviesComponent } from './watched-movies/watched-movies.component'
 import { CommentComponent } from './comment/comment.component'
 import { MatOptionModule } from '@angular/material/core';
+import { StartUpDialogComponent } from './start-up-dialog/start-up-dialog.component'
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MatOptionModule } from '@angular/material/core';
     RatingsComponent,
     RatingDialogComponent,
     WachedMoviesComponent,
-    CommentComponent
+    CommentComponent,
+    StartUpDialogComponent
   ],
   imports: [
     BrowserModule,

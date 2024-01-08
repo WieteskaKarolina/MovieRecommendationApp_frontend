@@ -1,0 +1,10 @@
+
+<h2 mat-dialog-title>Rate This Film</h2>
+<div>
+    <app-movie-tile
+        [movie]=data.movie
+        ></app-movie-tile>
+</div>
+<div mat-dialog-content>
+    <mat-star-rating [movieId]="data.movie.movieId" [rating]="data.userRating" [starCount]="5" [color]="'accent'" (ratingUpdated)="onRatingUpdated($event)"></mat-star-rating>
+</div>
