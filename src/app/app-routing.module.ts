@@ -10,6 +10,9 @@ import { MoviesComponent } from './movies/movies.component';
 import { MoviesFilterComponent } from './movies-filter/movies-filter.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { WachedMoviesComponent } from './watched-movies/watched-movies.component';
+import { WatchLaterMoviesComponent } from './watch-later/watch-later-movies.component';
+import { RecommendedMoviesComponent } from './recommendations/recommended-movies.component'
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +24,8 @@ const routes: Routes = [
   { path: 'moviesFilter', component: MoviesFilterComponent},
   { path: 'movie-details/:id', component: MovieDetailsComponent },
   { path: 'watched', component: WachedMoviesComponent },
+  { path: 'watchLater', component: WatchLaterMoviesComponent},
+  { path: 'recommended', component: RecommendedMoviesComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

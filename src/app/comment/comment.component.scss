@@ -6,7 +6,7 @@
     font-size: 1.1rem;
     color: #263843;
     border-bottom: 1px solid #C3CCD3;
-    margin-top: .25rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
         max-width: 400px;
     }
@@ -18,7 +18,9 @@
     }
     .add-comment {
       display: flex;
+      margin-top: 3rem;
       .comment-input {
+        margin-left: 1rem;
         position: relative;
         width: 100%;
         max-width: 600px;
@@ -56,26 +58,30 @@
       font-size: 0.8rem;
       margin-top: 1rem;
       .comment-label {
-        line-height: 1;
+        line-height: 2;
         .comment-name {
+          margin-left: 1rem;
           font-weight: 500;
           font-size: 0.85rem;
           color: #292929;
         }
         .comment-time {
+          margin-left: 0.5rem;
           font-weight: 100;
           color: #768791;
         }
       }
       .comment-content {
+        margin-left: 1rem;
         color: #768791;
-        margin-top: 0.1rem;
+        margin-top: 0.5rem;
       }
       .comment-action {
+        margin-left: 1rem;
         color: #c3ccd3;
         line-height: 1.2;
         span {
-          margin-right: 1rem;
+          margin-right: 2rem;
         }
       }
     }

@@ -34,7 +34,8 @@ import { WachedMoviesComponent } from './watched-movies/watched-movies.component
 import { CommentComponent } from './comment/comment.component'
 import { MatOptionModule } from '@angular/material/core';
 import { StartUpDialogComponent } from './start-up-dialog/start-up-dialog.component'
-
+import { WatchLaterMoviesComponent } from './watch-later/watch-later-movies.component'
+import { RecommendedMoviesComponent } from './recommendations/recommended-movies.component'
 
 @NgModule({
   declarations: [
@@ -53,7 +54,9 @@ import { StartUpDialogComponent } from './start-up-dialog/start-up-dialog.compon
     RatingDialogComponent,
     WachedMoviesComponent,
     CommentComponent,
-    StartUpDialogComponent
+    StartUpDialogComponent,
+    WatchLaterMoviesComponent,
+    RecommendedMoviesComponent
   ],
   imports: [
     BrowserModule,

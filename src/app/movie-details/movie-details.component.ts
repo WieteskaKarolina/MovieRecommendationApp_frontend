@@ -16,10 +16,12 @@ export class MovieDetailsComponent implements OnInit {
   userRating: number = 0;
   watched: boolean = false;
   watchLater: boolean = false;
-  seeAlsoMovies: Movie[] = [];
-  visibleMovies: Movie[] = [];
-  currentIndex = 0;
-
+  recommendedMovies: Movie[] = [];
+  recommendedVisibleMovies: Movie[] = [];
+  recommendedCurrentIndex = 0;
+  similarMovies: Movie[] = [];
+  similarVisibleMovies: Movie[] = [];
+  similarCurrentIndex = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,10 +50,16 @@ export class MovieDetailsComponent implements OnInit {
       this.watched = this.movieService.isMovieInWatchedList(numericMovieId);
     }
 
-    this.movieService.getMovies().subscribe((movies) => {
-      this.seeAlsoMovies = movies;
-      this.updateVisibleMovies();
+    this.movieService.getRecommendedMovies(movieId as string).subscribe((movies) => {
+      this.recommendedMovies = movies;
+      this.updateRecommendedVisibleMovies();
     });
+
+    this.movieService.getSimilarMovies(movieId as string).subscribe((movies) => {
+      this.similarMovies = movies;
+      this.updateSimilarVisibleMovies();
+    });
+
     this.movieService.getWatchedMovies();
   }
   
@@ -100,14 +108,23 @@ export class MovieDetailsComponent implements OnInit {
   }
 
 
-  updateVisibleMovies(): void {
-    this.visibleMovies = this.seeAlsoMovies.slice(this.currentIndex, this.currentIndex + 5);
+  updateRecommendedVisibleMovies(): void {
+    this.recommendedVisibleMovies = this.recommendedMovies.slice(this.recommendedCurrentIndex, this.recommendedCurrentIndex + 5);
   }
 
-  scrollCarousel(direction: 'left' | 'right'): void {
+  scrollRecommendedCarousel(direction: 'left' | 'right'): void {
     const increment = direction === 'left' ? -5 : 5;
-    this.currentIndex = (this.currentIndex + increment + this.seeAlsoMovies.length) % this.seeAlsoMovies.length;
-    this.updateVisibleMovies();
+    this.recommendedCurrentIndex = (this.recommendedCurrentIndex + increment + this.recommendedMovies.length) % this.recommendedMovies.length;
+    this.updateRecommendedVisibleMovies();
   }
     
+  updateSimilarVisibleMovies(): void {
+    this.similarVisibleMovies = this.similarMovies.slice(this.similarCurrentIndex, this.similarCurrentIndex + 5);
+  }
+
+  scrollSimilarCarousel(direction: 'left' | 'right'): void {
+    const increment = direction === 'left' ? -5 : 5;
+    this.similarCurrentIndex = (this.similarCurrentIndex + increment + this.similarMovies.length) % this.similarMovies.length;
+    this.updateSimilarVisibleMovies();
+  }
 }

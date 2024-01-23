@@ -1,0 +1,9 @@
+<div class="film-list-wrapper">
+  <h3 *ngIf="recommendedMovies.length < 1">Loading...</h3>
+  <div class="movies">
+      <app-movie-tile
+      *ngFor="let movie of recommendedMovies"
+      [movie]=movie
+      ></app-movie-tile>
+  </div>
+</div>

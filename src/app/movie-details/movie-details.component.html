@@ -39,21 +39,39 @@
   </div>
 
 
-  <div class="header">
-    <h1 class="see-also-text">See also</h1>
+  <!-- <div class="header">
+    <h1 class="see-also-text">Recommended</h1>
   </div>
   
   <div class="wrapper">
     <section id="section">
-      <div class="arrow__btn left-arrow" (click)="scrollCarousel('left')">&lt;</div>
+      <div class="arrow__btn left-arrow" (click)="scrollRecommendedCarousel('left')">&lt;</div>
   
       <div class="movie-container">
-        <div *ngFor="let movie of visibleMovies" class="item">
+        <div *ngFor="let movie of recommendedVisibleMovies" class="item">
           <app-movie-tile [movie]=movie></app-movie-tile>
         </div>
       </div>
   
-      <div class="arrow__btn right-arrow" (click)="scrollCarousel('right')">&gt;</div>
+      <div class="arrow__btn right-arrow" (click)="scrollRecommendedCarousel('right')">&gt;</div>
+    </section>
+  </div> -->
+
+  <div class="header">
+    <h1 class="see-also-text">Similar</h1>
+  </div>
+  
+  <div class="wrapper">
+    <section id="section">
+      <div class="arrow__btn left-arrow" (click)="scrollSimilarCarousel('left')">&lt;</div>
+  
+      <div class="movie-container">
+        <div *ngFor="let movie of similarVisibleMovies" class="item">
+          <app-movie-tile [movie]=movie></app-movie-tile>
+        </div>
+      </div>
+  
+      <div class="arrow__btn right-arrow" (click)="scrollSimilarCarousel('right')">&gt;</div>
     </section>
   </div>
 

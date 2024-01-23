@@ -3,19 +3,74 @@
 </ng-container>
 
 <div class="header">
-  <h1 class="trending-text">Trending Movies</h1>
+  <h1 class="trending-text">Popular</h1>
 </div>
 
 <div class="wrapper">
   <section id="section">
-    <div class="arrow__btn left-arrow" (click)="scrollCarousel('left')">&lt;</div>
+    <div class="arrow__btn left-arrow" (click)="scrollPopularCarousel('left')">&lt;</div>
 
     <div class="movie-container">
-      <div *ngFor="let movie of visibleMovies" class="item">
+      <div *ngFor="let movie of visiblepopularMovies" class="item">
         <app-movie-tile [movie]=movie></app-movie-tile>
       </div>
     </div>
 
-    <div class="arrow__btn right-arrow" (click)="scrollCarousel('right')">&gt;</div>
+    <div class="arrow__btn right-arrow" (click)="scrollPopularCarousel('right')">&gt;</div>
+  </section>
+</div>
+
+<div class="header">
+  <h1 class="trending-text">Top Rated</h1>
+</div>
+
+<div class="wrapper">
+  <section id="section">
+    <div class="arrow__btn left-arrow" (click)="scrollTopRatedCarousel('left')">&lt;</div>
+
+    <div class="movie-container">
+      <div *ngFor="let movie of visibletopRatedMovies" class="item">
+        <app-movie-tile [movie]=movie></app-movie-tile>
+      </div>
+    </div>
+
+    <div class="arrow__btn right-arrow" (click)="scrollTopRatedCarousel('right')">&gt;</div>
+  </section>
+</div>
+
+
+<div class="header">
+  <h1 class="trending-text">Now Playing</h1>
+</div>
+
+<div class="wrapper">
+  <section id="section">
+    <div class="arrow__btn left-arrow" (click)="scrollNowPlayingCarousel('left')">&lt;</div>
+
+    <div class="movie-container">
+      <div *ngFor="let movie of visiblenowPlayingMovies" class="item">
+        <app-movie-tile [movie]=movie></app-movie-tile>
+      </div>
+    </div>
+
+    <div class="arrow__btn right-arrow" (click)="scrollNowPlayingCarousel('right')">&gt;</div>
+  </section>
+</div>
+
+<div class="header">
+  <h1 class="trending-text">Upcoming</h1>
+</div>
+
+<div class="wrapper">
+  <section id="section">
+    <div class="arrow__btn left-arrow" (click)="scrollUpcomingCarousel('left')">&lt;</div>
+
+    <div class="movie-container">
+      <div *ngFor="let movie of visibleupcomingMovies" class="item">
+        <app-movie-tile [movie]=movie></app-movie-tile>
+      </div>
+    </div>
+
+    <div class="arrow__btn right-arrow" (click)="scrollUpcomingCarousel('right')">&gt;</div>
   </section>
 </div>

@@ -22,7 +22,7 @@ export class MovieSliderComponent implements OnInit {
 
   ngOnInit(): void {
     // Fetch movies from your service
-    this.movieService.getMovies().subscribe((movies) => {
+    this.movieService.getPupularMovies().subscribe((movies) => {
       this.movies = movies;
     });
     this.sliderTimer();

@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
   }
 
   fetchPopularMovies() {
-    this.movieService.getMovies().subscribe((movies) => {
+    this.movieService.getPupularMovies().subscribe((movies) => {
       this.popularMovies = movies;
     });
   }

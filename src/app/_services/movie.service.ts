@@ -21,9 +21,30 @@ export class MovieService {
     private tokenStorageService: TokenStorageService
   ) {}
 
-  getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.baseUrl + '/topten');
+  getPupularMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.baseUrl + '/popular');
   }
+
+  getSimilarMovies(movieId: string): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.baseUrl + `/getSimilar?id=${movieId}`);
+  }
+
+  getRecommendedMovies(movieId: string): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.baseUrl + `/getRecommended?id=${movieId}`);
+  }
+
+  getNowPlayingMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.baseUrl + '/nowPlaying');
+  }
+
+  getTopRatedMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.baseUrl + '/topRated');
+  }
+
+  getUpcomingrMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.baseUrl + '/upcoming');
+  }
+
 
   searchMovies(query: string): Observable<Movie[]> {
     const url = `${this.baseUrl}/search?query=${query}`;
@@ -52,6 +73,11 @@ export class MovieService {
     return this.http.get<Movie>(url);
   }
 
+  getMoviesByIds(movieIds: string[]): Observable<Movie[]> {
+    const url = `${this.baseUrl}/getMoviesByIds?ids=${movieIds.join(',')}`;
+    return this.http.get<Movie[]>(url);
+  }
+  
   submitRating(movieId: number, rating: number): Observable<any> {
     const ratingDto = { movieId, rating };
 

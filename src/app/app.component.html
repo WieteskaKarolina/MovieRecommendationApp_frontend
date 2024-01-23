@@ -9,6 +9,9 @@
       <li class="nav-item">
         <a href="/moviesFilter" class="nav-link" *ngIf="isLoggedIn" routerLink="moviesFilter">MoviesGenres</a>
       </li>
+      <li class="nav-item">
+        <a href="/recommended" class="nav-link" *ngIf="isLoggedIn" routerLink="recommended">Recommendations for U</a>
+      </li>
     </ul>
   
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
@@ -20,7 +23,7 @@
       </li>
     </ul>
   
-    <form class="form-inline my-2 my-lg-0" (ngSubmit)="search()">
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="search()" *ngIf="isLoggedIn">
       <mat-form-field>
         <input matInput placeholder="Search" [(ngModel)]="searchTerm" name="searchTerm" (keyup.enter)="search()">
         <button mat-button matSuffix type="submit">
@@ -29,13 +32,14 @@
       </mat-form-field>
     </form> 
 
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="isLoggedIn">
       <div class="custom-dropdown" [class.show]="isDropdownOpen" (click)="toggleDropdown()">
         <a class="nav-link" id="userDropdown">
-          <mat-icon>account_circle</mat-icon>
+          <mat-icon class="white-icon">account_circle</mat-icon>
         </a>
         <div class="dropdown-menu dropdown-menu-right" [class.show]="isDropdownOpen">
           <a href="/watched" class="dropdown-item" routerLink="watched">Watched Movies</a>
+          <a href="/watchLater" class="dropdown-item" routerLink="watchLater">Watch Later Movies</a>
           <hr class="dropdown-divider" />
           <a href class="dropdown-item" (click)="logout()">Log Out</a>
         </div>

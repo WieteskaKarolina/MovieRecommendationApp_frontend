@@ -5,9 +5,9 @@
   
     <div *ngIf="comments.length > 0; else noCommentsText">
         <div *ngFor="let comment of comments" class="comment">
-          <i class="fas fa-user"></i>
           <div>
             <div class="comment-label">
+              <i class="fas fa-user"></i>
               <span class="comment-name">{{ comment.userName }}</span>
               <span class="comment-time"> - {{ comment.createdAt }}</span>
             </div>

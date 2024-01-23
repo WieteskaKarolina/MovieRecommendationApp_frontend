@@ -1,4 +1,3 @@
-<div class="container-fluid mt-4 mb-4">
   <div class="column sidebar">
     <!-- Genre Filter Section -->
     <div *ngFor="let genre of genreslist; let i = index" 
@@ -8,14 +7,12 @@
       {{ genre }}
     </div>
   </div>
-
-  <div class="column film-list">
-    <!-- Movie List Section -->
-    <div class="film-list-wrapper">
-      <h3 *ngIf="movies.length < 1">Loading...</h3>
-      <div class="genres-movies">
-        <app-movie-tile *ngFor="let movie of movies" [movie]="movie"></app-movie-tile>
-      </div>
+  <div class="film-list-wrapper">
+    <h3 *ngIf="movies.length < 1">Loading...</h3>
+    <div class="movies">
+        <app-movie-tile
+        *ngFor="let movie of movies"
+        [movie]=movie
+        ></app-movie-tile>
     </div>
   </div>
-</div>
